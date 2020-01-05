@@ -1,0 +1,32 @@
+{
+  "name": "login",
+  "version": "1.0.0",
+  "description": "Beautifull Login App",
+  "main": "server.js",
+  "scripts": {
+    "dev": "./node_modules/.bin/env-cmd -f ./config/dev.env nodemon src/index.js"
+  },
+  "author": "Vincenzo PELLEGRINI",
+  "license": "MIT",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.8.4"
+  },
+  "devDependencies": {
+    "env-cmd": "^10.0.1",
+    "eslint": "^6.1.0",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-config-node": "^4.0.0",
+    "eslint-config-prettier": "^6.9.0",
+    "eslint-plugin-import": "^2.19.1",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-node": "^11.0.0",
+    "eslint-plugin-prettier": "^3.1.2",
+    "eslint-plugin-react": "^7.17.0",
+    "eslint-plugin-react-hooks": "^1.7.0",
+    "nodemon": "^2.0.2",
+    "prettier": "^1.19.1"
+  }
+}
