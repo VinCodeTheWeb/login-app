@@ -4,6 +4,7 @@
   "description": "Beautifull Login App",
   "main": "server.js",
   "scripts": {
+    "start": "node index.js",
     "dev": "./node_modules/.bin/env-cmd -f ./config/dev.env nodemon src/index.js"
   },
   "author": "Vincenzo PELLEGRINI",
