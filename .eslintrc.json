@@ -7,6 +7,6 @@
         "func-names": "off",
         "no-process-exit": "off",
         "no-process-env": "off",
-        "no-undescore-dangle": "off"
+        "no-underscore-dangle": "off"
     }
 }

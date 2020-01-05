@@ -31,26 +31,22 @@ const userSchema = new mongoose.Schema({
 });
 
 // HASH PASSWORD BEFORE SAVING
-userSchema.pre('save', async function() {
+userSchema.pre('save', async function(next) {
   const user = this;
 
   if (user.isModified('password')) {
-    await bcrypt.hash(user.password, 8);
-    await user.save();
+    user.password = await bcrypt.hash(user.password, 8);
   }
-  return user;
+  next();
 });
 
 // GENERATE AUTH TOKEN
 userSchema.methods.generateAuthToken = async function() {
   const user = this;
+  const token = jwt.sign({ _id: user._id.toString() }, process.env.JWT_SECRET);
 
-  const token = await jwt.sign(
-    { _id: user._id.toString() },
-    proccess.env.JWT_SECRET
-  );
-
-  user.tokens.concact({ token });
+  user.tokens = user.tokens.concat({ token });
+  await user.save();
 
   return token;
 };
