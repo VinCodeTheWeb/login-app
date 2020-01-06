@@ -68,6 +68,7 @@ userSchema.statics.findByCredentials = async (email, password) => {
   return user;
 };
 
+// REMOVING SENSITIVE DATA ON USER OBJECT
 userSchema.methods.toJSON = function() {
   const user = this;
   const userObject = user.toObject();
