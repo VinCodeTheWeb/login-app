@@ -52,6 +52,31 @@ userSchema.methods.generateAuthToken = async function() {
 };
 
 // FIND USER BY EMAIL & PASSWORD
+userSchema.statics.findByCredentials = async (email, password) => {
+  const user = await User.findOne({ email });
+
+  if (!user) {
+    throw new Error('Unable to login');
+  }
+
+  const isMatch = await bcrypt.compare(password, user.password);
+
+  if (!isMatch) {
+    throw new Error('Unbale to login');
+  }
+
+  return user;
+};
+
+userSchema.methods.toJSON = function() {
+  const user = this;
+  const userObject = user.toObject();
+
+  delete userObject.tokens;
+  delete userObject.password;
+
+  return userObject;
+};
 
 const User = mongoose.model('User', userSchema);
 
