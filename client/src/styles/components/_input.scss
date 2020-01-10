@@ -1,0 +1,53 @@
+.input_container {
+  position: relative;
+  margin: 1.6rem 0;
+  width: 100%
+}
+
+.input {
+  width: 70%;
+  border: none;
+  outline: none;
+  border-bottom: .1rem solid #DDD;
+  font-size: 1.4rem;
+  font-family: inherit;
+}
+
+.input::placeholder {
+  color: #DDD;
+}
+
+.input:focus::placeholder {
+  visibility: hidden;
+}
+
+.input_label_name {
+  position: absolute;
+  top: -.5rem;
+  left: 0;
+  transition: .2s;
+  font-size: 1.4rem;
+  color: #DDD;
+  visibility: hidden;
+}
+
+.input:focus~.input_label_name {
+  font-weight: bold;
+  font-size: 1.6rem;
+  top: -2.5rem;
+  color: #CE3C13;
+  visibility: visible;
+}
+
+.input:valid~.input_label_name {
+  font-weight: bold;
+  font-size: 1.6rem;
+  top: -2.5rem;
+  color: #CE3C13;
+  visibility: visible;
+}
+
+.input:focus,
+.input:valid {
+  border-bottom: .2rem solid #CE3C13;
+}

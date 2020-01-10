@@ -2,8 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Input = ({ label, type, name, placeholder, value, onChange }) => (
-  <div>
+  <div className="input_container">
     <input
+      className="input"
       type={type}
       name={name}
       value={value}
@@ -12,8 +13,8 @@ const Input = ({ label, type, name, placeholder, value, onChange }) => (
       autoComplete="off"
       required
     />
-    <label className="input_label_name" for={name}>
-      <span className="input_content_label_name">{label}</span>
+    <label className="input_label_name" htmlFor={name}>
+      {label}
     </label>
   </div>
 );
